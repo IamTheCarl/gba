@@ -52,8 +52,8 @@ extern "C" fn main() -> ! {
     let this_frame_keys = read_key_input();
 
     // adjust game state and wait for vblank
-    px = px.wrapping_add(2 * this_frame_keys.x_tribool() as usize);
-    py = py.wrapping_add(2 * this_frame_keys.y_tribool() as usize);
+    px = px.wrapping_add(this_frame_keys.x_tribool() as usize);
+    py = py.wrapping_add(this_frame_keys.y_tribool() as usize);
     if this_frame_keys.l() {
       color = Color(color.0.rotate_left(5));
     }
