@@ -1,5 +1,5 @@
 #![no_std]
-#![feature(start)]
+#![no_main]
 #![forbid(unsafe_code)]
 
 use gba::{
@@ -37,8 +37,8 @@ pub fn spin_until_vdraw() {
   while VCOUNT.read() >= VBLANK_SCANLINE {}
 }
 
-#[start]
-fn main(_argc: isize, _argv: *const *const u8) -> isize {
+#[no_mangle]
+extern "C" fn main() -> ! {
   const SETTING: DisplayControlSetting =
     DisplayControlSetting::new().with_mode(DisplayMode::Mode3).with_bg2(true);
   DISPCNT.write(SETTING);

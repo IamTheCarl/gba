@@ -1,5 +1,5 @@
 #![no_std]
-#![feature(start)]
+#![no_main]
 
 use gba::{
   io::{
@@ -35,8 +35,8 @@ fn start_timers() {
   TM1CNT_H.write(TIMER_SETTINGS.with_tick_rate(TimerTickRate::CPU64));
 }
 
-#[start]
-fn main(_argc: isize, _argv: *const *const u8) -> isize {
+#[no_mangle]
+extern "C" fn main() -> ! {
   DISPCNT.write(DisplayControlSetting::new().with_mode(DisplayMode::Mode3).with_bg2(true));
   Mode3::clear_to(BLACK);
 

@@ -1,6 +1,13 @@
 #![no_std]
 #![no_main]
 
+// The crate has to be imported at some point.
+// I suggest having the user tag the main function with #[entry] to work around this.
+// Such a solution would both insure the crate has been imported and gets linked
+// into the application, and will automatically format the main function so it can be
+// found by our bootloader.
+extern crate gba;
+
 #[panic_handler]
 fn panic(_info: &core::panic::PanicInfo) -> ! {
   loop {}

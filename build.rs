@@ -26,5 +26,4 @@ fn main() {
         .out_dir(out)
         .file("src/crt0.s")
         .compile("crt0");
-    println!("cargo:rustc-link-static={}", "crt0");
 }
