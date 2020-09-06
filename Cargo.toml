@@ -16,6 +16,9 @@ typenum = "1.10"
 voladdress = "0.2"
 gba-proc-macro = "0.5"
 
+[build-dependencies]
+cc = "1.0"
+
 [profile.release]
 lto = true
 panic = "abort"

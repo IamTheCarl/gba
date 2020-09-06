@@ -1,0 +1,11 @@
+[target.thumbv4t-none-eabi]
+runner = "mgba-qt"
+rustflags = [
+    "-C", "link-arg=-Tlink.x",
+]
+
+[build]
+target = "thumbv4t-none-eabi"
+
+[unstable]
+build-std = ["core", "compiler_builtins", "alloc"]
